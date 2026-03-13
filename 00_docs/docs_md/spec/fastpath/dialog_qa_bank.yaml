@@ -1,0 +1,100 @@
+version: "v0-test"
+default_language_policy: "follow_user_language"
+max_initial_suggestions: 3
+
+greeting_templates:
+  - id: "GREETING_001"
+    language: "zh"
+    triggers: ["你好", "嗨", "哈喽", "早上好", "下午好", "晚上好"]
+    response: "你好，我是你的选酒助手。你可以告诉我预算、场景或口味偏好，我来帮你快速定位。"
+  - id: "GREETING_002"
+    language: "en"
+    triggers: ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"]
+    response: "Hi, I am your wine advisor. Tell me your budget, occasion, or taste preference, and I can help quickly."
+
+tool_usage_qa:
+  - id: "TOOL_001"
+    language: "zh"
+    question_patterns: ["你能做什么", "这个工具怎么用", "你有什么功能"]
+    answer: "我可以做两类事：1）快速问答与酒款介绍；2）引导式问题选择，帮你更快找到合适产品。"
+  - id: "TOOL_002"
+    language: "en"
+    question_patterns: ["what can you do", "how to use this tool", "what is this tool for"]
+    answer: "I support two modes: (1) quick Q&A and wine introduction, (2) guided question selection to narrow choices faster."
+
+wine_basic_qa:
+  - id: "BASIC_001"
+    language: "zh"
+    question_patterns: ["什么是单宁", "单宁是什么"]
+    answer: "单宁是葡萄皮、籽和橡木桶带来的收敛感，常见于红酒。它会影响口感结构和陈年潜力。"
+  - id: "BASIC_002"
+    language: "zh"
+    question_patterns: ["干型和甜型有什么区别"]
+    answer: "核心区别是残糖含量。干型残糖更低，甜感弱；甜型残糖更高，入口更甜。"
+  - id: "BASIC_003"
+    language: "en"
+    question_patterns: ["what is tannin", "define tannin"]
+    answer: "Tannin is the drying, gripping sensation from grape skins, seeds, and oak. It shapes structure and aging potential."
+  - id: "BASIC_004"
+    language: "en"
+    question_patterns: ["difference between dry and sweet wine"]
+    answer: "The key difference is residual sugar: dry wines have lower residual sugar, while sweet wines have higher residual sugar."
+
+choice_question_bank:
+  initial_questions:
+    - id: "Q_A"
+      text_zh: "我想找一款适合晚餐牛排的红酒"
+      text_en: "I want a red wine for steak dinner"
+      answer_type: "static"
+      answer_zh: "牛排建议选择中高酒体、单宁适中到明显的红酒，能与牛排的油脂形成很好的平衡。我们有几款非常适合的选择，接下来我问你几个问题帮你缩小范围。"
+      answer_en: "For steak, a medium-to-full-bodied red with moderate tannin works beautifully with the fat. Let me ask a few questions to narrow it down."
+      follow_up_ids: ["Q_A_1", "Q_A_2", "Q_A_3"]
+    - id: "Q_B"
+      text_zh: "我想找一款送礼用的酒"
+      text_en: "I need a wine for gifting"
+      answer_type: "static"
+      answer_zh: "送礼选酒，包装精美、评分高、有故事感的酒款最受欢迎。我来帮你找一款合适的，先问几个问题。"
+      answer_en: "For gifting, wines with great presentation, high scores, and a good story tend to impress. Let me help you narrow it down."
+      follow_up_ids: ["Q_B_1", "Q_B_2", "Q_B_3"]
+    - id: "Q_C"
+      text_zh: "我想先了解一下什么是单宁"
+      text_en: "I want to understand what tannin is first"
+      answer_type: "static"
+      answer_zh: "单宁是葡萄皮、籽和橡木桶带来的收敛感，常见于红酒。单宁高的酒口感更结实、有骨架，适合搭配红肉；单宁低的酒更柔顺，入门也友好。"
+      answer_en: "Tannin is the drying, gripping sensation from grape skins, seeds, and oak barrels. High-tannin wines feel firm and structured — great with red meat. Low-tannin wines are silkier and more approachable."
+    - id: "Q_D"
+      text_zh: "你们有哪些酒"
+      text_en: "What wines do you have?"
+      answer_type: "wine_catalog_list"
+    - id: "Q_E"
+      text_zh: "我们代理的酒庄"
+      text_en: "Wineries we represent"
+      answer_type: "winery_list"
+      follow_up_ids: ["Q_E_1", "Q_E_2"]
+
+  follow_up_questions:
+    - id: "Q_A_1"
+      text_zh: "你的预算大概是多少？"
+      text_en: "What is your budget range?"
+    - id: "Q_A_2"
+      text_zh: "你偏好更浓郁还是更轻盈？"
+      text_en: "Do you prefer fuller or lighter body?"
+    - id: "Q_A_3"
+      text_zh: "是否介意明显单宁感？"
+      text_en: "Are you okay with noticeable tannins?"
+    - id: "Q_B_1"
+      text_zh: "收礼人平时偏好红酒还是白酒？"
+      text_en: "Does the recipient usually prefer red or white?"
+    - id: "Q_B_2"
+      text_zh: "你希望礼品风格偏稳妥还是有个性？"
+      text_en: "Do you want a safe or distinctive style?"
+    - id: "Q_B_3"
+      text_zh: "礼品预算区间是？"
+      text_en: "What is the gift budget range?"
+    - id: "Q_E_1"
+      text_zh: "酒庄介绍"
+      text_en: "Winery introduction"
+    - id: "Q_E_2"
+      text_zh: "酒庄卖点"
+      text_en: "Winery selling points"
+

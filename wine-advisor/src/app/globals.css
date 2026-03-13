@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream-50 text-gray-900 antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* 聊天消息滚动区域 */
+  .chat-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #d4a0ad #fdf2f4;
+  }
+  .chat-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chat-scroll::-webkit-scrollbar-track {
+    background: #fdf2f4;
+    border-radius: 3px;
+  }
+  .chat-scroll::-webkit-scrollbar-thumb {
+    background: #d4a0ad;
+    border-radius: 3px;
+  }
+
+  /* 打字动画 */
+  .typing-dot {
+    @apply inline-block w-2 h-2 rounded-full bg-wine-400;
+    animation: typing 1.4s infinite ease-in-out both;
+  }
+  .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+  .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+  .typing-dot:nth-child(3) { animation-delay: 0s; }
+
+  /* 消息气泡进入动画 */
+  .message-enter {
+    animation: messageSlideIn 0.3s ease-out;
+  }
+
+  /* 酒款卡片悬浮效果 */
+  .wine-card {
+    @apply transition-all duration-200;
+  }
+  .wine-card:hover {
+    @apply shadow-md -translate-y-0.5;
+  }
+
+  /* 快捷操作按钮 */
+  .quick-action {
+    @apply px-3 py-1.5 text-xs rounded-full border border-wine-200 text-wine-700
+           hover:bg-wine-50 hover:border-wine-300 transition-all duration-200
+           cursor-pointer whitespace-nowrap;
+  }
+  .quick-action:hover {
+    @apply shadow-sm;
+  }
+}
+
+@keyframes typing {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

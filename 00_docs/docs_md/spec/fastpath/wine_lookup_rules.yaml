@@ -1,0 +1,33 @@
+version: "v0-test"
+
+matching_policy:
+  priority_order:
+    - "exact_sku"
+    - "exact_name"
+    - "alias_match"
+    - "fuzzy_name"
+  fuzzy_threshold: 0.82
+  normalize_rules:
+    - "trim_whitespace"
+    - "lowercase_english"
+    - "remove_common_punctuation"
+    - "normalize_fullwidth_halfwidth"
+
+sku_patterns:
+  - "^SKU-[0-9]{4}$"
+  - "^[A-Z]{2,4}-[0-9]{3,6}$"
+
+alias_dictionary:
+  - canonical_name: "Combarels Blanc"
+    aliases: ["Combarels White", "Combarels B", "康巴莱白"]
+  - canonical_name: "Les Crouzets"
+    aliases: ["Crouzets", "克鲁泽", "莱克鲁泽"]
+  - canonical_name: "Les Célis"
+    aliases: ["Celis", "塞利", "莱塞利"]
+
+fallback_behavior:
+  on_no_match: "fallback_to_fullpath"
+  on_multi_match: "ask_clarification"
+  clarification_prompt_zh: "我找到了多个可能匹配的酒款，请问你指的是哪一款？"
+  clarification_prompt_en: "I found multiple possible matches. Which one did you mean?"
+

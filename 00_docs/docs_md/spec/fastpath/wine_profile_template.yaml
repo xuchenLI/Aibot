@@ -1,0 +1,47 @@
+version: "v0-test"
+
+profile_template:
+  required_fields:
+    - "wine_id"
+    - "name"
+    - "sku"
+    - "color"
+    - "region"
+    - "grape_variety"
+    - "price"
+    - "tasting_notes"
+  optional_fields:
+    - "body"
+    - "acid"
+    - "tannin"
+    - "food_pairing"
+    - "vintage"
+    - "video_url"
+    - "video_title"
+
+rendering_template:
+  zh: |
+    酒款：{name}
+    SKU：{sku}
+    产区：{region}
+    品种：{grape_variety}
+    价格：{price}
+    风味：{tasting_notes}
+    {video_block}
+  en: |
+    Wine: {name}
+    SKU: {sku}
+    Region: {region}
+    Grape: {grape_variety}
+    Price: {price}
+    Notes: {tasting_notes}
+    {video_block}
+
+video_policy:
+  provider: "youtube"
+  display_mode: "in_app_modal"
+  allow_external_fallback: true
+  supported_url_patterns:
+    - "https://www.youtube.com/watch?v="
+    - "https://youtu.be/"
+
