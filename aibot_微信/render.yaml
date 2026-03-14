@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: wine-advisor-wechat-h5
+    runtime: node
+    rootDir: aibot_微信
+    buildCommand: ""
+    startCommand: node server.js
+    healthCheckPath: /ready
+    plan: free
+    envVars:
+      - key: WINE_ADVISOR_UPSTREAM_URL
+        sync: false
+      - key: WECHAT_H5_PUBLIC_BASE_URL
+        sync: false
+      - key: WECHAT_H5_REQUEST_TIMEOUT_MS
+        value: "30000"
+      - key: WECHAT_H5_TRUST_PROXY_PROTO
+        value: "https"

@@ -1,0 +1,9 @@
+{
+  "name": "aibot-wechat",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Standalone production-style mirror gateway for wine-advisor WeChat H5 access.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
