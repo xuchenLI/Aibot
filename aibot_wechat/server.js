@@ -3,7 +3,7 @@
 const http = require("http");
 const { URL } = require("url");
 
-const PORT = Number(process.env.WECHAT_H5_PORT || 3100);
+const PORT = Number(process.env.PORT || process.env.WECHAT_H5_PORT || 3100);
 const UPSTREAM_URL = (process.env.WINE_ADVISOR_UPSTREAM_URL || "http://127.0.0.1:3000").replace(/\/+$/, "");
 const PUBLIC_BASE_URL = (process.env.WECHAT_H5_PUBLIC_BASE_URL || "").replace(/\/+$/, "");
 const REQUEST_TIMEOUT_MS = Number(process.env.WECHAT_H5_REQUEST_TIMEOUT_MS || 30000);
