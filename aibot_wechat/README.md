@@ -1,4 +1,4 @@
-# aibot_微信
+# aibot_wechat
 
 这是一个独立的微信入口目录，基于当前 `wine-advisor` 项目的微信 H5 镜像方案整理而成。
 
@@ -27,7 +27,7 @@ npm run dev
 再启动本目录：
 
 ```powershell
-cd D:\00_Programming\04_Aibot\aibot_微信
+cd D:\00_Programming\04_Aibot\aibot_wechat
 $env:WINE_ADVISOR_UPSTREAM_URL="http://127.0.0.1:3000"
 node server.js
 ```
@@ -43,5 +43,5 @@ http://127.0.0.1:3100
 如果以后不需要，直接删除整个目录：
 
 ```text
-D:\00_Programming\04_Aibot\aibot_微信
+D:\00_Programming\04_Aibot\aibot_wechat
 ```

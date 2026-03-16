@@ -2,7 +2,7 @@ services:
   - type: web
     name: wine-advisor-wechat-h5
     runtime: node
-    rootDir: aibot_微信
+    rootDir: aibot_wechat
     buildCommand: ""
     startCommand: node server.js
     healthCheckPath: /ready
