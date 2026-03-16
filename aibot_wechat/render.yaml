@@ -5,7 +5,7 @@ services:
     rootDir: aibot_wechat
     buildCommand: ""
     startCommand: node server.js
-    healthCheckPath: /ready
+    healthCheckPath: /health
     plan: free
     envVars:
       - key: WINE_ADVISOR_UPSTREAM_URL
