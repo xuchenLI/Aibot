@@ -2,9 +2,9 @@ services:
   - type: web
     name: wine-advisor-app
     runtime: node
-    rootDir: wine-advisor
-    buildCommand: npm install && npm run build
-    startCommand: npm run start
+    rootDir: .
+    buildCommand: cd wine-advisor && npm install && npm run build
+    startCommand: cd wine-advisor && npm run start -- --hostname 0.0.0.0 --port $PORT
     healthCheckPath: /
     plan: free
     envVars:
