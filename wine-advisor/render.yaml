@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: wine-advisor-app
+    runtime: node
+    rootDir: wine-advisor
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    healthCheckPath: /
+    plan: free
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: NODE_VERSION
+        value: "20.17.0"
